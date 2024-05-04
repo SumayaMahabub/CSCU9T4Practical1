@@ -15,24 +15,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author saemundur
+ * @sumaya saemundur
  */
 public class TrainingRecordTest {
     public TrainingRecordTest() {
     }
-    
+
     @BeforeAll
-    public void setUpClass() {
+    public static void setUpClass() {
     }
-    
+
     @AfterAll
-    public void tearDownClass() {
+    public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -50,7 +50,7 @@ public class TrainingRecordTest {
         instance.addEntry(a);
         assertEquals(instance.getNumberOfEntries(),1);
     }
-    
+
     /**
      * Test of addEntry with a repeat
      * Adding another entry for the same person on the same day should fail
@@ -93,7 +93,7 @@ public class TrainingRecordTest {
         result = instance.lookupEntry(1, 2, 1999);
         assertEquals(expResult, result, "expecting to not find the entry");
     }
-    
+
     /**
      * Test of getNumberOfEntries, of class TrainingRecord
      */
@@ -115,7 +115,7 @@ public class TrainingRecordTest {
         instance.addEntry(c2);
         assertEquals(instance.getNumberOfEntries(),4);
     }
-    
+
     /**
      * Test of yet to be implemented lookupEntries, of class TrainingRecord
      * Implement the method and then remove the "fail" line below and
@@ -125,22 +125,22 @@ public class TrainingRecordTest {
     public void testLookupEntries() {
         System.out.println("lookupEntries");
         String expectResultsNone = "Sorry couldn't find anything for this date";
-        String expectResults = "Alice ran 3.0 km in 0:16:7 on 1/2/2003\n" + 
-                                "Bob ran 3.0 km in 0:14:15 on 1/2/2003\n";
+        String expectResults = "Alice ran 3.0 km in 0:16:7 on 1/2/2003\n" +
+                "Bob ran 3.0 km in 0:14:15 on 1/2/2003\n";
         TrainingRecord instance = new TrainingRecord();
         Entry a = new Entry("Alice", 1, 2, 2003, 0, 16, 7, 3);
         Entry b = new Entry("Bob", 1, 2, 2003, 0, 14, 15, 3);
         instance.addEntry(a);
         instance.addEntry(b);
-        fail("This method cannot be tested as it does not exist yet");
+//        fail("This method cannot be tested as it does not exist yet");
         int d = 1;
         int m = 2;
         int y = 2003;
         // un-comment the lines below when you've implemented the method
-//        String resultSuccess = instance.lookupEntries(d,m,y);
-//        String resultNone = instance.lookupEntries(d,m,1999);
-//        assertEquals(expectResultsNone,resultNone);
-//        assertEquals(expectResults,resultSuccess);
+        String resultSuccess = instance.lookupEntries(d,m,y);
+        String resultNone = instance.lookupEntries(d,m,1999);
+        assertEquals(expectResultsNone,resultNone);
+        assertEquals(expectResults,resultSuccess);
     }
-    
+
 }
